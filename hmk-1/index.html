@@ -1,4 +1,4 @@
-<!--James Valles - Homework 1 - CSC 436 -->
+<!--James Valles - Homework 1 - CSC 436-->
 <!DOCTYPE html>
 <html>
     <h3>Javascript Basics</h3>
@@ -111,7 +111,7 @@
             }
             else {
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
-                chicagoStartups.reverse().forEach( function(startup) {
+                chicagoStartupsReverse().forEach( function(startup) {
                     var childDiv = document.createElement('div');
                     var text = document.createTextNode(startup);
                     childDiv.appendChild(text);
@@ -122,8 +122,7 @@
     }
 
     function chicagoStartupsReverse() {
-        var reversedStartups = [];
-        /*
+             /*
             TODO: REVERSE THE CONTENTS OF THE ARRAY WITHOUT USING THE BUILT IN REVERSE METHOD
                   RETURN THE REVERSED ARRAY
 
@@ -134,8 +133,18 @@
                     DATA STRUTUCTURES REGARDLESS OF THE PROGRAMMING LANGUAGE
         
         */
+        var reversedStartups = [];
+        var j = chicagoStartups.length;
+
+        for(var i = 0; i < chicagoStartups.length; i++){
+            reversedStartups[j - 1] = chicagoStartups[i];
+            j = j - 1
+
+        }
         return reversedStartups;
     }
+
+    
 
     function cleanAndCountCharacters() {
         console.log('CLEAN AND COUNT CHARACTERS');
@@ -223,6 +232,6 @@
                         `);
         }
         
-    });
+    })();
 
 </script>
