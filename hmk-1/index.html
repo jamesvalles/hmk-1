@@ -5,6 +5,7 @@
     <button onclick="cleanAndCountCharacters()">
         clean and count words
     </button>
+
     <body>
     </body>
 </html>
@@ -164,9 +165,17 @@
         reverseBtn.onclick = renderReversedElements;
         reverseBtn.appendChild(btnText);
         var reverseButtonContainer = document.createElement('div');
-        reverseButtonContainer.appendChild(reverseBtn);    
+        reverseButtonContainer.appendChild(reverseBtn);  
+        
         document.getElementById('rootContainer').appendChild(reverseButtonContainer);
         document.getElementById('rootContainer').appendChild(reverseContainer);
+
+        //Add 'Toggle Display' button using JavaScript
+        var toggleButton = document.createElement('button');
+        var toggleButtonText = document.createTextNode('Toggle Display');
+        toggleButton.onclick = toggleDisplay;
+        toggleButton.appendChild(toggleButtonText);
+        reverseButtonContainer.appendChild(toggleButton);
     }
 
     function toggleDisplay() {
@@ -189,6 +198,7 @@
     function run() {
         initDocument();
         initReverse();
+        
     }
     run();
     
