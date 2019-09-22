@@ -1,7 +1,7 @@
 <!--James Valles - Homework 1 - CSC 436-->
 <!DOCTYPE html>
 <html>
-    <h3>Javascript Basics</h3>
+    <center><h3>Javascript Basics</h3></center>
     <button onclick="cleanAndCountCharacters()">
         clean and count words
     </button>
@@ -11,44 +11,69 @@
 </html>
 
 <style>
-    #rootContainer {
-        display: flex;
 
-    }
-    .root-container {
-        position: relative;
-    }
 
-    .root-container .header {
-        position: relative;
-    }
+        #rootContainer {
+            display: flex;
+    
+        }
 
-    .root-container .main {
-        position: relative;
-    }
+#reverse-container-display{
+    display: block;
+}
 
-    .root-container .footer {
-        position: relative;
-    }
+#reverse-container-display2{
+    display: block;
+}
+        #reverseContainer{
+display: block;
+            background-color: rgb(177, 182, 184);
+            padding: 10px;
+        }
 
-    .startups-container {
-        background-color: gray;
-    }
+        body{
+            background-color: aliceblue;
+        }
 
-    .red {
-        background-image: red;
-    }
-
-    .blue {
-        background-image: blue;
-    }
-
-    .gold {
-        background-image: gold;
-    }
-</style>
+        .root-container {
+            position: relative;
+            padding: 20px;
+            background-color: lightgray
+        }
+    
+        .root-container .header {
+            position: relative;
+            
+        }
+    
+        .root-container .main {
+            position: relative;
+        }
+    
+        .root-container .footer {
+            position: relative;
+        }
+    
+        .startups-container {
+            background-color: gray;
+        }
+    
+        .red {
+            background-image:red;
+        }
+    
+        .blue {
+            background-image: blue;
+        }
+    
+        .gold {
+            background-image: gold;
+        }
+    </style>
 
 <script>
+
+    var toggle = true;
     var colors = ['red', 'blue', 'gold'];
     var chicagoStartups = [
         '  Interior   Define  ',
@@ -82,6 +107,7 @@
         clearDocument();
         var rootDiv = document.createElement('div');
         rootDiv.id = 'rootContainer';
+        rootDiv.className = 'root-container'
         var companyNamesContainer = document.createElement('div');
         chicagoStartups.forEach( function(chicagoStartup, index) {
             var childDiv = document.createElement('div');
@@ -105,6 +131,7 @@
                 reversedChicagoStartups.forEach(function(chicagoStartup, index) {
                     console.log(chicagoStartup);
                     var childDiv = document.createElement('div');
+                    childDiv.id = 'reverse-container-display';
                     var text = document.createTextNode(chicagoStartup);
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
@@ -114,6 +141,7 @@
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
                 chicagoStartupsReverse().forEach( function(startup) {
                     var childDiv = document.createElement('div');
+                    childDiv.id = 'reverse-container-display2';
                     var text = document.createTextNode(startup);
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
@@ -155,11 +183,14 @@
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
 
+        
+
     }
     
     function initReverse() {
         var reverseContainer = document.createElement('div');
         reverseContainer.id = 'reverseContainer';
+        
         var reverseBtn = document.createElement('button');
         var btnText = document.createTextNode('Reverse');
         reverseBtn.onclick = renderReversedElements;
@@ -193,6 +224,30 @@
 
             3.  
         */
+console.log("Toggle Display button has been pressed.");
+var parentNode = document.getElementById("reverseContainer"); 
+if(toggle){
+    for(i = 0; i < parentNode.childElementCount; i++){
+    
+    parentNode.childNodes.item(i).style.display = "inline-block";
+
+    parentNode.childNodes.item(i).style.padding = "5px";
+    } 
+    toggle = false;
+        console.log("inline-block CSS Display")
+}else{
+    for(i = 0; i < parentNode.childElementCount; i++){
+    
+    parentNode.childNodes.item(i).style.display = "block";
+    parentNode.childNodes.item(i).style.padding = "0px";
+    } 
+    toggle = true;
+    console.log("Block CSS Display")
+}
+
+
+
+//document.getElementById("reverse-container-display2").style.display = "none";
     }
     
     function run() {
