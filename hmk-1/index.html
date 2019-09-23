@@ -109,8 +109,12 @@ display: block;
         rootDiv.id = 'rootContainer';
         rootDiv.className = 'root-container'
         var companyNamesContainer = document.createElement('div');
+companyNamesContainer.id = "companyNamesContainer";
+
+
         chicagoStartups.forEach( function(chicagoStartup, index) {
             var childDiv = document.createElement('div');
+            childDiv.id = 'rootContainerWords';
             var text = document.createTextNode(index.toString().concat(' .) ').concat(chicagoStartup));
             childDiv.appendChild(text);
             companyNamesContainer.appendChild(childDiv);
@@ -176,14 +180,30 @@ display: block;
     
 
     function cleanAndCountCharacters() {
-        console.log('CLEAN AND COUNT CHARACTERS');
+        var listObject = new Map();
+
+        console.log('Clean and count characters');
         /*
             TODO: REMOVES ANY SPECIAL CHARACTERS FROM EACH COMPANY NAME AND
               DISPLAYS THE NUMBER OF REMAINING CHARACTERS NEXT TO THE FULL WORD.
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
 
-        
+        chicagoStartups.forEach(trim);
+
+       function trim(companyName){
+            var trimmedName = companyName.trim(); 
+            var newName = trimmedName.replace(/[^a-zA-Z ]/g, "").trim();
+            console.log(newName + " " + newName.length);
+            listObject.set(newName, newName.length);
+        }
+        var parentNode = document.getElementById("companyNamesContainer");
+       
+        var i = 0; 
+        for (var[key, value] of listObject.entries()){
+            parentNode.childNodes.item(i).innerHTML = (i + " ). " + key + " " + value); 
+            i++;      
+        }
 
     }
     
