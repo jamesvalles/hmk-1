@@ -151,7 +151,7 @@
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
                 chicagoStartupsReverse().forEach(function (startup) {
                     var childDiv = document.createElement('div');
-                    childDiv.className = 'reverse-container-display2';
+                    childDiv.cla = 'reverse-container-display2';
                     var text = document.createTextNode(startup);
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
@@ -200,8 +200,9 @@
         function trim(companyName) {
             var trimmedName = companyName.trim();
             var newName = trimmedName.replace(/[^a-zA-Z ]/g, "").trim();
+            newName = newName.replace(/ /g, "").trim();
             console.log(newName + " " + newName.length);
-            listObject.set(newName, newName.length);
+            listObject.set(companyName, newName.length);
         }
         var parentNode = document.getElementById("companyNamesContainer");
 
