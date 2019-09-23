@@ -1,75 +1,85 @@
 <!--James Valles - Homework 1 - CSC 436-->
 <!DOCTYPE html>
 <html>
-    <center><h3>Javascript Basics</h3></center>
-    <button onclick="cleanAndCountCharacters()">
-        clean and count words
-    </button>
 
-    <body>
-    </body>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<center>
+    <h3 class="display-4">Javascript Basics</h3>
+</center>
+<button class="btn btn-info btn-sm" onclick="cleanAndCountCharacters()">
+    clean and count words
+</button>
+
+<body>
+</body>
+
 </html>
 
 <style>
+    #rootContainer {
+        display: flex;
 
+    }
 
-        #rootContainer {
-            display: flex;
-    
-        }
+    #reverse-container-display {
+        display: block;
+    }
 
-#reverse-container-display{
-    display: block;
-}
+    #reverse-container-display2 {
+        display: block;
+    }
 
-#reverse-container-display2{
-    display: block;
-}
-        #reverseContainer{
-display: block;
-            background-color: rgb(177, 182, 184);
-            padding: 10px;
-        }
+    #reverseContainer {
+        display: block;
 
-        body{
-            background-color: aliceblue;
-        }
+        padding: 10px;
+    }
 
-        .root-container {
-            position: relative;
-            padding: 20px;
-            background-color: lightgray
-        }
-    
-        .root-container .header {
-            position: relative;
-            
-        }
-    
-        .root-container .main {
-            position: relative;
-        }
-    
-        .root-container .footer {
-            position: relative;
-        }
-    
-        .startups-container {
-            background-color: gray;
-        }
-    
-        .red {
-            background-image:red;
-        }
-    
-        .blue {
-            background-image: blue;
-        }
-    
-        .gold {
-            background-image: gold;
-        }
-    </style>
+    body {
+        background-color: aliceblue;
+    }
+
+    .btn {
+        margin:5px;
+    }
+    .root-container {
+        position: relative;
+        padding: 20px;
+        background-color: rgb(240, 239, 239)
+    }
+
+    .root-container .header {
+        position: relative;
+
+    }
+
+    .root-container .main {
+        position: relative;
+    }
+
+    .root-container .footer {
+        position: relative;
+    }
+
+    .startups-container {
+        background-color: gray;
+    }
+
+    .red {
+        background-image: red;
+    }
+
+    .blue {
+        background-image: blue;
+    }
+
+    .gold {
+        background-image: gold;
+    }
+</style>
 
 <script>
 
@@ -109,10 +119,10 @@ display: block;
         rootDiv.id = 'rootContainer';
         rootDiv.className = 'root-container'
         var companyNamesContainer = document.createElement('div');
-companyNamesContainer.id = "companyNamesContainer";
+        companyNamesContainer.id = "companyNamesContainer";
 
 
-        chicagoStartups.forEach( function(chicagoStartup, index) {
+        chicagoStartups.forEach(function (chicagoStartup, index) {
             var childDiv = document.createElement('div');
             childDiv.id = 'rootContainerWords';
             var text = document.createTextNode(index.toString().concat(' .) ').concat(chicagoStartup));
@@ -132,7 +142,7 @@ companyNamesContainer.id = "companyNamesContainer";
                     reversedChicagoStartups.push(reverseContainer.lastChild.innerHTML);
                     reverseContainer.removeChild(reverseContainer.lastChild);
                 }
-                reversedChicagoStartups.forEach(function(chicagoStartup, index) {
+                reversedChicagoStartups.forEach(function (chicagoStartup, index) {
                     console.log(chicagoStartup);
                     var childDiv = document.createElement('div');
                     childDiv.id = 'reverse-container-display';
@@ -143,7 +153,7 @@ companyNamesContainer.id = "companyNamesContainer";
             }
             else {
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
-                chicagoStartupsReverse().forEach( function(startup) {
+                chicagoStartupsReverse().forEach(function (startup) {
                     var childDiv = document.createElement('div');
                     childDiv.id = 'reverse-container-display2';
                     var text = document.createTextNode(startup);
@@ -155,21 +165,21 @@ companyNamesContainer.id = "companyNamesContainer";
     }
 
     function chicagoStartupsReverse() {
-             /*
-            TODO: REVERSE THE CONTENTS OF THE ARRAY WITHOUT USING THE BUILT IN REVERSE METHOD
-                  RETURN THE REVERSED ARRAY
+        /*
+       TODO: REVERSE THE CONTENTS OF THE ARRAY WITHOUT USING THE BUILT IN REVERSE METHOD
+             RETURN THE REVERSED ARRAY
 
-            TIPS: 
-                1.  REVIEW JAVASCRIPT ARRAY DATA STRUCTURE AND THE BUILTIN METHODS PROVIDED TO ALL ARRAYS
+       TIPS: 
+           1.  REVIEW JAVASCRIPT ARRAY DATA STRUCTURE AND THE BUILTIN METHODS PROVIDED TO ALL ARRAYS
 
-                2.  THIS IS A COMMON JOB INTERVIEW QUESTION, THAT SHOULD BE SOLVABLE BASED ON AN UNDERSTANDING OF
-                    DATA STRUTUCTURES REGARDLESS OF THE PROGRAMMING LANGUAGE
-        
-        */
+           2.  THIS IS A COMMON JOB INTERVIEW QUESTION, THAT SHOULD BE SOLVABLE BASED ON AN UNDERSTANDING OF
+               DATA STRUTUCTURES REGARDLESS OF THE PROGRAMMING LANGUAGE
+   
+   */
         var reversedStartups = [];
         var j = chicagoStartups.length;
 
-        for(var i = 0; i < chicagoStartups.length; i++){
+        for (var i = 0; i < chicagoStartups.length; i++) {
             reversedStartups[j - 1] = chicagoStartups[i];
             j = j - 1
 
@@ -177,7 +187,7 @@ companyNamesContainer.id = "companyNamesContainer";
         return reversedStartups;
     }
 
-    
+
 
     function cleanAndCountCharacters() {
         var listObject = new Map();
@@ -191,39 +201,42 @@ companyNamesContainer.id = "companyNamesContainer";
 
         chicagoStartups.forEach(trim);
 
-       function trim(companyName){
-            var trimmedName = companyName.trim(); 
+        function trim(companyName) {
+            var trimmedName = companyName.trim();
             var newName = trimmedName.replace(/[^a-zA-Z ]/g, "").trim();
             console.log(newName + " " + newName.length);
             listObject.set(newName, newName.length);
         }
         var parentNode = document.getElementById("companyNamesContainer");
-       
-        var i = 0; 
-        for (var[key, value] of listObject.entries()){
-            parentNode.childNodes.item(i).innerHTML = (i + " ). " + key + " " + value); 
-            i++;      
+
+        var i = 0;
+        for (var [key, value] of listObject.entries()) {
+            parentNode.childNodes.item(i).innerHTML = (i + " ). " + key + " " + "<b> Count:" + value + "</b>");
+            i++;
         }
 
     }
-    
+
     function initReverse() {
         var reverseContainer = document.createElement('div');
         reverseContainer.id = 'reverseContainer';
-        
+
         var reverseBtn = document.createElement('button');
         var btnText = document.createTextNode('Reverse');
+        reverseBtn.className = "btn btn-info btn-sm";
         reverseBtn.onclick = renderReversedElements;
         reverseBtn.appendChild(btnText);
         var reverseButtonContainer = document.createElement('div');
-        reverseButtonContainer.appendChild(reverseBtn);  
-        
+        reverseButtonContainer.className = "reverseButtonContainer";
+        reverseButtonContainer.appendChild(reverseBtn);
+
         document.getElementById('rootContainer').appendChild(reverseButtonContainer);
         document.getElementById('rootContainer').appendChild(reverseContainer);
 
         //Add 'Toggle Display' button using JavaScript
         var toggleButton = document.createElement('button');
         var toggleButtonText = document.createTextNode('Toggle Display');
+        toggleButton.className = "btn btn-info btn-sm";
         toggleButton.onclick = toggleDisplay;
         toggleButton.appendChild(toggleButtonText);
         reverseButtonContainer.appendChild(toggleButton);
@@ -244,45 +257,45 @@ companyNamesContainer.id = "companyNamesContainer";
 
             3.  
         */
-console.log("Toggle Display button has been pressed.");
-var parentNode = document.getElementById("reverseContainer"); 
-if(toggle){
-    for(i = 0; i < parentNode.childElementCount; i++){
-    
-    parentNode.childNodes.item(i).style.display = "inline-block";
+        console.log("Toggle Display button has been pressed.");
+        var parentNode = document.getElementById("reverseContainer");
+        if (toggle) {
+            for (i = 0; i < parentNode.childElementCount; i++) {
 
-    parentNode.childNodes.item(i).style.padding = "5px";
-    } 
-    toggle = false;
-        console.log("inline-block CSS Display")
-}else{
-    for(i = 0; i < parentNode.childElementCount; i++){
-    
-    parentNode.childNodes.item(i).style.display = "block";
-    parentNode.childNodes.item(i).style.padding = "0px";
-    } 
-    toggle = true;
-    console.log("Block CSS Display")
-}
+                parentNode.childNodes.item(i).style.display = "inline-block";
+
+                parentNode.childNodes.item(i).style.padding = "5px";
+            }
+            toggle = false;
+            console.log("inline-block CSS Display")
+        } else {
+            for (i = 0; i < parentNode.childElementCount; i++) {
+
+                parentNode.childNodes.item(i).style.display = "block";
+                parentNode.childNodes.item(i).style.padding = "0px";
+            }
+            toggle = true;
+            console.log("Block CSS Display")
+        }
 
 
 
-//document.getElementById("reverse-container-display2").style.display = "none";
+        //document.getElementById("reverse-container-display2").style.display = "none";
     }
-    
+
     function run() {
         initDocument();
         initReverse();
-        
+
     }
     run();
-    
+
     var flags = {
         displayInstructions: true
     };
 
     //TODO INVOKE THIS ANONYMOUS FUNCTION TO DISPLAY HOMEWORK INSTRUCTIONS IN THE CONSOLE
-    (function() {
+    (function () {
         if (flags.displayInstructions) {
             console.log(`
                             ASSUMPTIONS: !!! NO JQUERY !!! 
@@ -316,7 +329,7 @@ if(toggle){
 
                         `);
         }
-        
+
     })();
 
 </script>
