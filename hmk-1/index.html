@@ -27,17 +27,10 @@
     #companyNamesContainer{
         width: 400px; 
     }
-    #reverse-container-display {
-        display: block;
-    }
 
-    #reverse-container-display2 {
-        display: block;
-    }
 
     #reverseContainer {
         display: block;
-
         padding: 10px;
     }
 
@@ -127,7 +120,7 @@
 
         chicagoStartups.forEach(function (chicagoStartup, index) {
             var childDiv = document.createElement('div');
-            childDiv.id = 'rootContainerWords';
+            childDiv.className = 'rootContainerWords';
             var text = document.createTextNode(index.toString().concat(' .) ').concat(chicagoStartup));
             childDiv.appendChild(text);
             companyNamesContainer.appendChild(childDiv);
@@ -148,7 +141,7 @@
                 reversedChicagoStartups.forEach(function (chicagoStartup, index) {
                     console.log(chicagoStartup);
                     var childDiv = document.createElement('div');
-                    childDiv.id = 'reverse-container-display';
+                    childDiv.className = 'reverse-container-display';
                     var text = document.createTextNode(chicagoStartup);
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
@@ -158,7 +151,7 @@
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
                 chicagoStartupsReverse().forEach(function (startup) {
                     var childDiv = document.createElement('div');
-                    childDiv.id = 'reverse-container-display2';
+                    childDiv.className = 'reverse-container-display2';
                     var text = document.createTextNode(startup);
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
@@ -264,16 +257,13 @@
         var parentNode = document.getElementById("reverseContainer");
         if (toggle) {
             for (i = 0; i < parentNode.childElementCount; i++) {
-
                 parentNode.childNodes.item(i).style.display = "inline-block";
-
                 parentNode.childNodes.item(i).style.padding = "5px";
             }
             toggle = false;
             console.log("inline-block CSS Display")
         } else {
             for (i = 0; i < parentNode.childElementCount; i++) {
-
                 parentNode.childNodes.item(i).style.display = "block";
                 parentNode.childNodes.item(i).style.padding = "0px";
             }
